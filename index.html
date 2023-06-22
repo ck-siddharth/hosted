@@ -9,11 +9,15 @@
   </style>
 </head>
 <body>
-  <div id="headings"></div>
-  <script src="https://ck-siddharth.github.io/hosted/embed.js"></script>
+  <div id="headings" data-id=""></div>
+  <script src="https://ck-siddharth.github.io/hosted/embed.js" data-id=""></script>
+
   <script>
-    var divElement = document.getElementById("headings");
-    divElement.setAttribute("data-id", "001");
+    var dataId = "001"; // Replace with your desired data-id value
+    
+    document.getElementById("headings").setAttribute("data-id", dataId);
+    var scriptTag = document.querySelector('script[src="https://ck-siddharth.github.io/hosted/embed.js"]');
+    scriptTag.setAttribute("data-id", dataId);
   </script>
 </body>
 </html>
