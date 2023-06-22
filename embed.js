@@ -8,35 +8,32 @@ document.addEventListener("DOMContentLoaded", function() {
         "Heading 5"
       ],
       "002": [
-        "Title 1",
-        "Title 2",
-        "Title 3",
-        "Title 4",
-        "Title 5"
+        "Title 5",
+        "Title 6",
+        "Title 7",
+        "Title 8",
+        "Title 9"
       ]
     };
   
-    var elements = document.querySelectorAll('[data-id]');
+    var element = document.querySelector('[data-id]');
+    var dataId = element.getAttribute("data-id");
+    var headings = data[dataId];
   
-    elements.forEach(function(element) {
-      var dataId = element.getAttribute("data-id");
-      var headings = data[dataId];
+    if (headings) {
+      var ulElement = document.createElement("ul");
   
-      if (headings) {
-        var ulElement = document.createElement("ul");
+      headings.forEach(function(heading) {
+        var liElement = document.createElement("li");
+        liElement.textContent = heading;
+        ulElement.appendChild(liElement);
+      });
   
-        headings.forEach(function(heading) {
-          var liElement = document.createElement("li");
-          liElement.textContent = heading;
-          ulElement.appendChild(liElement);
-        });
-  
-        while (element.firstChild) {
-          element.firstChild.remove();
-        }
-  
-        element.appendChild(ulElement);
+      while (element.firstChild) {
+        element.firstChild.remove();
       }
-    });
+  
+      element.appendChild(ulElement);
+    }
   });
   
